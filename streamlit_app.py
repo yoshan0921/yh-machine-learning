@@ -116,7 +116,7 @@ with st.expander("Model Performance"):
   ax.set_ylabel('Actual')
   st.pyplot(fig)
   
-  fig, ax = plt.subplots(figsize=(3, 3))
+  fig, ax = plt.subplots(figsize=(4, 3), dpi=150)
   sns.heatmap(confusion_matrix(y, clf.predict(X)), annot=True, fmt='d', cmap='Blues', ax=ax)
   ax.set_xlabel('Predicted')
   ax.set_ylabel('Actual')
