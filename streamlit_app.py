@@ -88,8 +88,8 @@ clf = RandomForestClassifier()
 clf.fit(x_train, y_train)
 clf
 
-print(f'Train_acc：{accuracy_score(y_train, clf.predict(x_train))}')
-print(f'Test_acc ：{accuracy_score(y_test, clf.predict(x_test))}')
+st.write(f'Train_acc：{accuracy_score(y_train, clf.predict(x_train))}')
+st.write(f'Test_acc ：{accuracy_score(y_test, clf.predict(x_test))}')
 
 ## Apply model to make predictions
 prediction = clf.predict(input_row)
