@@ -112,8 +112,8 @@ with st.expander("Model Performance"):
   cm = confusion_matrix(y, clf.predict(X))
   fig, ax = plt.subplots(dpi=150)
   sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-  ax.set_xlabel('Predicted')
-  ax.set_ylabel('Actual')
+  ax.set_xlabel('Predicted', fontsize=10)
+　ax.set_ylabel('Actual', fontsize=10)
   st.pyplot(fig)
   
 # Display predicted species
