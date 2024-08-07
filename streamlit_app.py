@@ -15,7 +15,7 @@ st.subheader("Preparation process")
 
 with st.expander("Data"):
   st.write("**Raw data**")
-  df = pd.read_csv("./penguins_size.csv")
+  df = pd.read_csv("./penguins_clearned.csv")
   df
 
   st.write("**X**")
