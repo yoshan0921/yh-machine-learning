@@ -57,7 +57,7 @@ with st.sidebar:
   # Values specified in sidebar + CSV data
   input_penguins = pd.concat([input_df, X_raw], axis=0)
 
-# Data preparation
+# Data encoding
 ## Encode X
 encode = ["island", "sex"]
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
@@ -91,16 +91,6 @@ clf
 st.write(f'Train_acc：{accuracy_score(y_train, clf.predict(x_train))}')
 st.write(f'Test_acc ：{accuracy_score(y_test, clf.predict(x_test))}')
 
-## Apply model to make predictions
-prediction = clf.predict(input_row)
-prediction_proba = clf.predict_proba(input_row)
-
-df_prediction_proba = pd.DataFrame(prediction_proba)
-df_prediction_proba.columns = ["Adelie", "Chinstrap", "Gentoo"]
-df_prediction_proba.rename(columns={0: "Adelie",
-                                    1: "Chinstrap",
-                                    2: "Gentoo"})
-
 with st.expander("Model evaluation"):
   st.write("**Feature Importance**")
   feature_importances = pd.Series(clf.feature_importances_, index=X.columns)
@@ -119,7 +109,17 @@ with st.expander("Model evaluation"):
   ax.tick_params(axis='both', which='major', labelsize=6)
   st.pyplot(fig)
 
-# Display predicted species
+# Apply model to make predictions
+prediction = clf.predict(input_row)
+prediction_proba = clf.predict_proba(input_row)
+
+df_prediction_proba = pd.DataFrame(prediction_proba)
+df_prediction_proba.columns = ["Adelie", "Chinstrap", "Gentoo"]
+df_prediction_proba.rename(columns={0: "Adelie",
+                                    1: "Chinstrap",
+                                    2: "Gentoo"})
+
+# Display predicted result
 st.subheader("Preficted species")
 
 st.write("**Input penguin**")
