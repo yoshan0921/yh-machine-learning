@@ -51,14 +51,14 @@ with st.expander("Input features"):
   input_penguins
 
 # Data preparation
-# Encode X
+## Encode X
 encode = ["island", "sex"]
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 
 X = df_penguins[1:]
 input_row = df_penguins[:1]
 
-# Encode y
+## Encode y
 target_mapper = {"Adelie": 0,
                 "Chinstrap": 1,
                 "Gentoo": 2}
