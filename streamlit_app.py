@@ -4,6 +4,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
 
 st.title('🤖 Machine Learning App')
 
@@ -134,4 +135,6 @@ st.dataframe(df_prediction_proba,
 penguins_species = np.array(["Adelie", "Chinstrap", "Gentoo"])
 st.success(str(penguins_species[prediction][0]))
 
-  
+with st.expander("Classification Report"):
+    report = classification_report(y, clf.predict(X), target_names=["Adelie", "Chinstrap", "Gentoo"])
+    st.text(report)
