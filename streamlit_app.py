@@ -23,16 +23,16 @@ with st.expander("Data"):
   y_raw
 
 
-with st.expander("Data visualization1"):
-  st.scatter_chart(data=df, x="bill_length_mm", y="body_mass_g", color="species")
+# with st.expander("Data visualization1"):
+#   st.scatter_chart(data=df, x="bill_length_mm", y="body_mass_g", color="species")
 
-with st.expander("Data visualization2"):
-  st.write("**Distribution of Features**")
-  for feature in ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']:
-    st.write(f"**{feature} by species**")
-    st.bar_chart(data=df, x=feature, y="species")
+# with st.expander("Data visualization2"):
+#   st.write("**Distribution of Features**")
+#   for feature in ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']:
+#     st.write(f"**{feature} by species**")
+#     st.bar_chart(data=df, x=feature, y="species")
 
-with st.expander("Data visualization3"):
+with st.expander("Data visualization"):
   st.write("**Pairplot of Features**")
   fig = sns.pairplot(df, hue="species", markers=["o", "s", "D"])
   st.pyplot(fig)
