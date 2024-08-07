@@ -114,6 +114,7 @@ with st.expander("Model Performance"):
   sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, annot_kws={"size": 8})
   ax.set_xlabel('Predicted', fontsize=8)
   ax.set_ylabel('Actual', fontsize=8)
+  ax.tick_params(axis='both', which='major', labelsize=8)
   st.pyplot(fig)
   
 # Display predicted species
