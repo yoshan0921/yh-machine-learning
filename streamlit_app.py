@@ -11,11 +11,11 @@ st.set_page_config(layout="wide")
 
 st.title('🤖 Machine Learning App')
 st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
-st.subheader("Preparation Process")
+st.subheader("Preparation process")
 
 with st.expander("Data"):
   st.write("**Raw data**")
-  df = pd.read_csv("https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv")
+  df = pd.read_csv("./penguins_cleaned.csv")
   df
 
   st.write("**X**")
@@ -122,6 +122,7 @@ st.subheader("Preficted species")
 st.write("**Input penguin**")
 input_df
 
+st.write("**Prediction result**")
 st.dataframe(df_prediction_proba,
              column_config={
                "Adelie": st.column_config.ProgressColumn(
