@@ -72,7 +72,7 @@ with st.expander("Data preparation"):
 # Model training
 ## Train the ML model
 clf = RandomForestClassifier()
-clf.fit(X_raw, y)
+clf.fit(df_penguins, y)
 
 ## Apply model to make predictions
 prediction = clf.predict(input_row)
