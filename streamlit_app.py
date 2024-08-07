@@ -78,9 +78,16 @@ with st.expander("Data encoding"):
   y
 
 # Model training
+## Split data for cross-validation
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+
 ## Train the ML model
 clf = RandomForestClassifier()
-clf.fit(X, y)
+clf.fit(x_train, y_train)
+clf
+
+print(f'Train_acc：{accuracy_score(y_train, model.predict(x_train))}')
+print(f'Test_acc ：{accuracy_score(y_test, model.predict(x_test))}')
 
 ## Apply model to make predictions
 prediction = clf.predict(input_row)
@@ -109,12 +116,6 @@ with st.expander("Model evaluation"):
   ax.set_ylabel('Actual', fontsize=6)
   ax.tick_params(axis='both', which='major', labelsize=6)
   st.pyplot(fig)
-
-# with st.expander("Input features"):
-#   st.write("**Input penguin**")
-#   input_df
-#   st.write("**Combined penguins data**")
-#   input_penguins
 
 # Display predicted species
 st.subheader("Preficted species")
