@@ -9,15 +9,12 @@ from sklearn.metrics import classification_report, confusion_matrix
 # ページ設定（ワイドレイアウトに設定）
 st.set_page_config(layout="wide")
 
-st.title('🤖 Machine Learning App')
-
-st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
-
-# タブの作成
-tab1, tab2, tab3 = st.tabs(["元データ", "データ可視化", "モデル評価と推測結果"])
+# サイドバーにアプリのタイトルとタブメニューを配置
+st.sidebar.title('🤖 Machine Learning App')
+tab = st.sidebar.radio("メニュー", ["元データ", "データ可視化", "モデル評価と推測結果"])
 
 # 元データタブ
-with tab1:
+if tab == "元データ":
     st.subheader("元データ")
     df = pd.read_csv("https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv")
     st.write("**Raw Data**")
@@ -32,7 +29,7 @@ with tab1:
     st.dataframe(y_raw)
 
 # データ可視化タブ
-with tab2:
+elif tab == "データ可視化":
     st.subheader("データ可視化")
 
     st.write("### Scatter Plot: Bill Length vs Body Mass")
@@ -48,7 +45,7 @@ with tab2:
     st.pyplot(fig)
 
 # モデル評価と推測結果タブ
-with tab3:
+elif tab == "モデル評価と推測結果":
     st.subheader("モデル評価と推測結果")
 
     st.write("### 入力フィーチャーの設定")
@@ -148,12 +145,13 @@ with tab3:
     st.text(report)
 
     st.write("### 混同行列")
-    cm = confusion_matrix(y, clf.predict(X))
-    fig, ax = plt.subplots()
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
+    # 画像サイズを調整して混同行列を表示
+    fig, ax = plt.subplots(figsize=(6, 4))  # ここでサイズを調整
+    sns.heatmap(confusion_matrix(y, clf.predict(X)), annot=True, fmt='d', cmap='Blues', ax=ax)
     ax.set_xlabel('Predicted')
     ax.set_ylabel('Actual')
     st.pyplot(fig)
+
 
 
 
