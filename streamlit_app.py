@@ -47,7 +47,11 @@ with st.sidebar:
           "flipper_length_mm": flipper_length_mm,
           "body_mass_g": body_mass_g,
           "sex": sex}
+  
+  # Values specified in sidebar
   input_df = pd.DataFrame(data, index=[0])
+  
+  # Values specified in sidebar + CSV data
   input_penguins = pd.concat([input_df, X_raw], axis=0)
 
 # Data preparation
