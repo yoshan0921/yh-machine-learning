@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 
 st.title('🤖 Machine Learning App')
 st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
@@ -88,8 +88,8 @@ clf = RandomForestClassifier()
 clf.fit(x_train, y_train)
 clf
 
-# st.write(f'Train_acc：{accuracy_score(y_train, clf.predict(x_train))}')
-# st.write(f'Test_acc ：{accuracy_score(y_test, clf.predict(x_test))}')
+st.write(f'Train_acc：{accuracy_score(y_train, clf.predict(x_train))}')
+st.write(f'Test_acc ：{accuracy_score(y_test, clf.predict(x_test))}')
 
 ## Apply model to make predictions
 prediction = clf.predict(input_row)
