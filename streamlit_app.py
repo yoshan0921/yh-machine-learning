@@ -112,6 +112,8 @@ with st.expander("Model Performance"):
   cm = confusion_matrix(y, clf.predict(X))
   fig, ax = plt.subplots(dpi=150)
   sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, annot_kws={"size": 8})
+  cbar = ax.collections[0].colorbar
+  cbar.ax.tick_params(labelsize=8)
   ax.set_xlabel('Predicted', fontsize=8)
   ax.set_ylabel('Actual', fontsize=8)
   ax.tick_params(axis='both', which='major', labelsize=8)
