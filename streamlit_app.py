@@ -92,7 +92,7 @@ df_prediction_proba.rename(columns={0: "Adelie",
                                     1: "Chinstrap",
                                     2: "Gentoo"})
 
-with st.expander("Model Performance"):
+with st.expander("Model evaluation"):
   st.write("**Feature Importance**")
   feature_importances = pd.Series(clf.feature_importances_, index=X.columns)
   st.bar_chart(feature_importances.sort_values(ascending=False))
@@ -110,14 +110,18 @@ with st.expander("Model Performance"):
   ax.tick_params(axis='both', which='major', labelsize=6)
   st.pyplot(fig)
 
-with st.expander("Input features"):
-  st.write("**Input penguin**")
-  input_df
-  st.write("**Combined penguins data**")
-  input_penguins
+# with st.expander("Input features"):
+#   st.write("**Input penguin**")
+#   input_df
+#   st.write("**Combined penguins data**")
+#   input_penguins
 
 # Display predicted species
 st.subheader("Preficted species")
+
+st.write("**Input penguin**")
+input_df
+
 st.dataframe(df_prediction_proba,
              column_config={
                "Adelie": st.column_config.ProgressColumn(
