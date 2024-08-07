@@ -8,8 +8,6 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
 st.set_page_config(layout="wide")
-st.title('🤖 Machine Learning App')
-st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
 
 with st.expander("Data"):
   st.write("**Raw data**")
@@ -41,6 +39,9 @@ with st.expander("Data visualization3"):
   
 # Input features
 with st.sidebar:
+  st.title('🤖 Machine Learning App')
+  st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
+  
   st.header("Input features")
   island = st.selectbox("Island", ("Biscoe", "Dream", "Torgersen",))
   bill_length_mm = st.slider("Bill length (mm)", 32.1, 59.6, 43.9)
