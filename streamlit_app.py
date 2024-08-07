@@ -71,7 +71,7 @@ def target_encode(val):
     return target_mapper[val]
 y = y_raw.apply(target_encode)
     
-with st.expander("Data preparation"):
+with st.expander("Data encoding"):
   st.write("**Encoded X (input penguin)**")
   df_penguins
   st.write("**Encoded y**")
