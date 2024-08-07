@@ -22,16 +22,6 @@ with st.expander("Data"):
   y_raw = df.species
   y_raw
 
-
-# with st.expander("Data visualization1"):
-#   st.scatter_chart(data=df, x="bill_length_mm", y="body_mass_g", color="species")
-
-# with st.expander("Data visualization2"):
-#   st.write("**Distribution of Features**")
-#   for feature in ['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']:
-#     st.write(f"**{feature} by species**")
-#     st.bar_chart(data=df, x=feature, y="species")
-
 with st.expander("Data visualization"):
   st.write("**Pairplot of Features**")
   fig = sns.pairplot(df, hue="species", markers=["o", "s", "D"])
@@ -104,7 +94,9 @@ with st.expander("Model Performance"):
   
   st.write("**Confusion Matrix**")
   cm = confusion_matrix(y, clf.predict(X))
-  fig, ax = plt.subplots(dpi=150)
+  fig, ax = plt.subplots()
+  
+  # Font size setting
   sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, annot_kws={"size": 6})
   cbar = ax.collections[0].colorbar
   cbar.ax.tick_params(labelsize=6)
