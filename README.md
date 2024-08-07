@@ -1,6 +1,6 @@
 # 🤖 Machine Learning App
 
-This is a machine learning app.
+The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.
 
 ## Demo App
 
