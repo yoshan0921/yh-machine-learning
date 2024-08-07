@@ -4,7 +4,7 @@ The purpose of this application is to experience the process of creating predict
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://yh-machinelearning.streamlit.app/)
 
 ## GitHub Codespaces
 
