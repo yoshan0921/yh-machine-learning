@@ -109,19 +109,19 @@ df_prediction_proba.rename(columns={0: "Adelie",
 
 with st.expander("Model Performance"):
   st.write("**Confusion Matrix**")
-    cm = confusion_matrix(y, clf.predict(X))
-    fig, ax = plt.subplots()
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-    ax.set_xlabel('Predicted')
-    ax.set_ylabel('Actual')
-    st.pyplot(fig)
-
-    st.write("### 混同行列")
-    fig, ax = plt.subplots(figsize=(6, 4))  # ここでサイズを調整
-    sns.heatmap(confusion_matrix(y, clf.predict(X)), annot=True, fmt='d', cmap='Blues', ax=ax)
-    ax.set_xlabel('Predicted')
-    ax.set_ylabel('Actual')
-    st.pyplot(fig)
+  cm = confusion_matrix(y, clf.predict(X))
+  fig, ax = plt.subplots()
+  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
+  ax.set_xlabel('Predicted')
+  ax.set_ylabel('Actual')
+  st.pyplot(fig)
+  
+  st.write("### 混同行列")
+  fig, ax = plt.subplots(figsize=(6, 4))  # ここでサイズを調整
+  sns.heatmap(confusion_matrix(y, clf.predict(X)), annot=True, fmt='d', cmap='Blues', ax=ax)
+  ax.set_xlabel('Predicted')
+  ax.set_ylabel('Actual')
+  st.pyplot(fig)
 
 # Display predicted species
 st.subheader("Preficted species")
