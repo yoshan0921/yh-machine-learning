@@ -116,8 +116,7 @@ with st.expander("Model Performance"):
   ax.set_ylabel('Actual')
   st.pyplot(fig)
   
-  st.write("### 混同行列")
-  fig, ax = plt.subplots(figsize=(6, 4))  # ここでサイズを調整
+  fig, ax = plt.subplots(figsize=(3, 3))
   sns.heatmap(confusion_matrix(y, clf.predict(X)), annot=True, fmt='d', cmap='Blues', ax=ax)
   ax.set_xlabel('Predicted')
   ax.set_ylabel('Actual')
