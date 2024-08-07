@@ -111,12 +111,12 @@ with st.expander("Model Performance"):
   st.write("**Confusion Matrix**")
   cm = confusion_matrix(y, clf.predict(X))
   fig, ax = plt.subplots(dpi=150)
-  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, annot_kws={"size": 8})
+  sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, annot_kws={"size": 6})
   cbar = ax.collections[0].colorbar
-  cbar.ax.tick_params(labelsize=8)
-  ax.set_xlabel('Predicted', fontsize=8)
-  ax.set_ylabel('Actual', fontsize=8)
-  ax.tick_params(axis='both', which='major', labelsize=8)
+  cbar.ax.tick_params(labelsize=6)
+  ax.set_xlabel('Predicted', fontsize=6)
+  ax.set_ylabel('Actual', fontsize=6)
+  ax.tick_params(axis='both', which='major', labelsize=6)
   st.pyplot(fig)
   
 # Display predicted species
