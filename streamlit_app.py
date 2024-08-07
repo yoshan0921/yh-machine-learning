@@ -107,6 +107,14 @@ df_prediction_proba.rename(columns={0: "Adelie",
                                     1: "Chinstrap",
                                     2: "Gentoo"})
 
+with st.expander("Confusion Matrix"):
+    cm = confusion_matrix(y, clf.predict(X))
+    fig, ax = plt.subplots()
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
+    ax.set_xlabel('Predicted')
+    ax.set_ylabel('Actual')
+    st.pyplot(fig)
+
 # Display predicted species
 st.subheader("Preficted species")
 st.dataframe(df_prediction_proba,
@@ -136,15 +144,3 @@ st.dataframe(df_prediction_proba,
 
 penguins_species = np.array(["Adelie", "Chinstrap", "Gentoo"])
 st.success(str(penguins_species[prediction][0]))
-
-with st.expander("Classification Report"):
-    report = classification_report(y, clf.predict(X), target_names=["Adelie", "Chinstrap", "Gentoo"])
-    st.text(report)
-
-with st.expander("Confusion Matrix"):
-    cm = confusion_matrix(y, clf.predict(X))
-    fig, ax = plt.subplots()
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-    ax.set_xlabel('Predicted')
-    ax.set_ylabel('Actual')
-    st.pyplot(fig)
