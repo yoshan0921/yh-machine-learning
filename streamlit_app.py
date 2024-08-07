@@ -60,12 +60,6 @@ with st.sidebar:
   input_df = pd.DataFrame(data, index=[0])
   input_penguins = pd.concat([input_df, X_raw], axis=0)
 
-with st.expander("Input features"):
-  st.write("**Input penguin**")
-  input_df
-  st.write("**Combined penguins data**")
-  input_penguins
-
 # Data preparation
 ## Encode X
 encode = ["island", "sex"]
@@ -118,7 +112,13 @@ with st.expander("Model Performance"):
   ax.set_ylabel('Actual', fontsize=6)
   ax.tick_params(axis='both', which='major', labelsize=6)
   st.pyplot(fig)
-  
+
+with st.expander("Input features"):
+  st.write("**Input penguin**")
+  input_df
+  st.write("**Combined penguins data**")
+  input_penguins
+
 # Display predicted species
 st.subheader("Preficted species")
 st.dataframe(df_prediction_proba,
