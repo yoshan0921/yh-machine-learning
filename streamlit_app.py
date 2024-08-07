@@ -22,7 +22,7 @@ with st.expander("Data"):
   X_raw = df.drop("species", axis=1)
   X_raw
   
-  st.write("**Y**")
+  st.write("**y**")
   y_raw = df.species
   y_raw
 
