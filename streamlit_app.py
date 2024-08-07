@@ -22,7 +22,7 @@ with st.expander("Data"):
   y_raw
 
 
-with st.expander("Data visualization"):
+with st.expander("Data visualization1"):
   st.scatter_chart(data=df, x="bill_length_mm", y="body_mass_g", color="species")
 
 with st.expander("Data visualization2"):
