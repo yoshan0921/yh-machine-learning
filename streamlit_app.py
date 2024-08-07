@@ -93,10 +93,6 @@ with st.expander("Data preparation"):
 clf = RandomForestClassifier()
 clf.fit(X, y)
 
-with st.expander("Feature Importance"):
-  feature_importances = pd.Series(clf.feature_importances_, index=X.columns)
-  st.bar_chart(feature_importances.sort_values(ascending=False))
-
 ## Apply model to make predictions
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
@@ -108,6 +104,10 @@ df_prediction_proba.rename(columns={0: "Adelie",
                                     2: "Gentoo"})
 
 with st.expander("Model Performance"):
+  st.write("**Feature Importance**")
+  feature_importances = pd.Series(clf.feature_importances_, index=X.columns)
+  st.bar_chart(feature_importances.sort_values(ascending=False))
+  
   st.write("**Confusion Matrix**")
   cm = confusion_matrix(y, clf.predict(X))
   fig, ax = plt.subplots(dpi=150)
