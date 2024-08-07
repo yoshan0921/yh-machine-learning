@@ -5,6 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 st.title('🤖 Machine Learning App')
 
@@ -138,3 +139,11 @@ st.success(str(penguins_species[prediction][0]))
 with st.expander("Classification Report"):
     report = classification_report(y, clf.predict(X), target_names=["Adelie", "Chinstrap", "Gentoo"])
     st.text(report)
+
+with st.expander("Confusion Matrix"):
+    cm = confusion_matrix(y, clf.predict(X))
+    fig, ax = plt.subplots()
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
+    ax.set_xlabel('Predicted')
+    ax.set_ylabel('Actual')
+    st.pyplot(fig)
