@@ -7,8 +7,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
+st.set_page_config(layout="wide")
 st.title('🤖 Machine Learning App')
-
 st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
 
 with st.expander("Data"):
