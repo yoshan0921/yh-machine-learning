@@ -86,8 +86,8 @@ with st.expander("Data preparation"):
   y
 
 with st.expander("Feature Importance"):
-    feature_importances = pd.Series(clf.feature_importances_, index=X.columns)
-    st.bar_chart(feature_importances.sort_values(ascending=False))
+  feature_importances = pd.Series(clf.feature_importances_, index=X.columns)
+  st.bar_chart(feature_importances.sort_values(ascending=False))
 
 # Model training
 ## Train the ML model
