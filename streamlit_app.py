@@ -97,7 +97,7 @@ with st.expander("Model evaluation"):
   st.bar_chart(feature_importances.sort_values(ascending=False))
   
   st.write("**Confusion Matrix**")
-  cm = confusion_matrix(y, clf.predict(X))
+  cm = confusion_matrix(y_test, clf.predict(x_test))
   fig, ax = plt.subplots()
   
   # Font size setting
