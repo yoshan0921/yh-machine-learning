@@ -5,20 +5,69 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
+import joblib
 
-# st.set_page_config(layout="wide")
+# Function for rendering the sidebar
 
-st.title('🤖 Machine Learning App')
-st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
+
+def render_sidebar():
+    with st.sidebar:
+        st.image("./images/PenguinClassifier_transparent.png")
+        st.info('The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.')
+
+        st.page_link(
+            "streamlit_app.py",
+            label="Predict",
+            icon=":material/smart_toy:"
+        )
+        st.page_link(
+            "pages/learningdata_visualization.py",
+            label="Learning Data",
+            icon=":material/database:"
+        )
+
+
+# Display sidebar
+render_sidebar()
+
+# Define container
+container = st.container(border=True)
+
+# Set parameters
+container.header("Input features")
+sex = container.selectbox("Sex", ("male", "female"))
+island = container.selectbox("Island", ("Biscoe", "Dream", "Torgersen",))
+bill_length_mm = container.slider("Bill length (mm)", 32.1, 59.6, 43.9)
+bill_depth_mm = container.slider("Bill depth (mm)", 13.1, 21.5, 17.2)
+flipper_length_mm = container.slider(
+    "Flipper length (mm)", 172.0, 231.0, 201.0)
+body_mass_g = container.slider("Body mass (g)", 2700.0, 6300.0, 4207.0)
+
+# Execute prediction
+container.button("Predict", use_container_width=True)
+
+st.write("## 📊  Prediction Results")
+
+# Create Dataframe for the input features
+data = {"island": island,
+        "bill_length_mm": bill_length_mm,
+        "bill_depth_mm": bill_depth_mm,
+        "flipper_length_mm": flipper_length_mm,
+        "body_mass_g": body_mass_g,
+        "sex": sex}
+
+# Values specified in sidebar
+input_df = pd.DataFrame(data, index=[0])
+
+
 st.subheader("Preparation process")
 
 with st.expander("Data"):
     st.write("**Raw data**")
     df = pd.read_csv(
-        "https://github.com/dataprofessor/data/blob/master/penguins_cleaned.csv")
+        "https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv")
     df
 
     st.write("**X**")
@@ -34,29 +83,8 @@ with st.expander("Data visualization"):
     fig = sns.pairplot(df, hue="species", markers=["o", "s", "D"])
     st.pyplot(fig)
 
-# Input features
-with st.sidebar:
-    st.header("Input features")
-    island = st.selectbox("Island", ("Biscoe", "Dream", "Torgersen",))
-    bill_length_mm = st.slider("Bill length (mm)", 32.1, 59.6, 43.9)
-    bill_depth_mm = st.slider("Bill depth (mm)", 13.1, 21.5, 17.2)
-    flipper_length_mm = st.slider("Flipper length (mm)", 172.0, 231.0, 201.0)
-    body_mass_g = st.slider("Body mass (g)", 2700.0, 6300.0, 4207.0)
-    sex = st.selectbox("Sex", ("male", "female"))
-
-    # Create Dataframe for the input features
-    data = {"island": island,
-            "bill_length_mm": bill_length_mm,
-            "bill_depth_mm": bill_depth_mm,
-            "flipper_length_mm": flipper_length_mm,
-            "body_mass_g": body_mass_g,
-            "sex": sex}
-
-    # Values specified in sidebar
-    input_df = pd.DataFrame(data, index=[0])
-
-    # Values specified in sidebar + CSV data
-    input_penguins = pd.concat([input_df, X_raw], axis=0)
+# Values specified in sidebar + CSV data
+input_penguins = pd.concat([input_df, X_raw], axis=0)
 
 # Data encoding
 # Encode X
@@ -117,6 +145,10 @@ with st.expander("Model evaluation"):
     st.pyplot(fig)
 
 # Apply model to make predictions
+
+# Load the model
+clf = joblib.load("penguin_classifier_model.pkl")
+
 prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 
@@ -160,3 +192,17 @@ st.dataframe(df_prediction_proba,
 
 penguins_species = np.array(["Adelie", "Chinstrap", "Gentoo"])
 st.success(str(penguins_species[prediction][0]))
+
+# Custom CSS
+st.markdown("""
+    <style>
+    div.stButton > button {
+        background-color: #FFFFFF;
+        color: #F63365;
+    }
+    div.stButton > button:hover {
+        background-color: #F63365;
+        color: #FFFFFF;
+    }
+    </style>
+    """, unsafe_allow_html=True)
