@@ -1,6 +1,6 @@
 # 🤖 Machine Learning App
 
-The purpose of this application is to experience the process of creating predictive models easily in Python and scikit-learn.
+The purpose of this application is to provide a simple experience of the process of creating an ML model and releasing a web application that uses that model.
 
 ## Demo App
 
@@ -35,3 +35,8 @@ The application guides users through the following steps:
 - **Random Forest Classifier**:
   - The application uses a Random Forest Classifier, an ensemble learning method that employs multiple decision trees to perform classification. The final prediction is made by aggregating the predictions of individual trees, improving accuracy and handling noisy or non-linear data effectively.
 
+## Technology Stack
+- Streamlit (>=1.26.0): For creating the web application interface.
+- scikit-learn: For loading and using the pre-trained Random Forest model.
+- NumPy & Pandas: For data manipulation and processing.
+- Matplotlib & Seaborn: For generating visualizations.
