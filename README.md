@@ -20,7 +20,7 @@ This app allows users to explore the predictions made by a Random Forest model t
 ## About Dataset
 <div align="center">
 <img src="./images/lter_penguins.png" style="width: 500px">
-<div>source: @allison_horst https://github.com/allisonhorst/penguins</div>
+<div>Artwork by @allison_horst (https://github.com/allisonhorst)</div>
 </div>
 <br>
 
