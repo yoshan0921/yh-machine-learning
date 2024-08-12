@@ -2,38 +2,39 @@
 
 The purpose of this application is to provide a simple experience of the process of creating an ML model and releasing a web application that uses that model.
 
+## Workflow
+1. Model Creation: The Random Forest model is trained using a dataset of penguins, which is then saved using the joblib library for easy integration into the Streamlit app.
+2. Model Integration in Streamlit: The saved model is loaded and integrated into the Streamlit application, allowing for interactive prediction based on user-selected features.
+3. Deployment: The application is deployed on Streamlit Community Cloud, providing an easily accessible, hands-on experience of the complete model deployment pipeline.
+
 ## Demo App
+<div align="center">
+   <img src="./images/screenshot.png" style="width: 500px">
+   <p>Demo: https://yh-machinelearning.streamlit.app/</p>
+</div>
+<br>
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://yh-machinelearning.streamlit.app/)
+## What This App Does
+This app allows users to explore the predictions made by a Random Forest model trained on the Palmer Penguins dataset. The model predicts penguin species based on various features such as species, island, bill measurements, flipper length, body mass, and sex. Users can interact with the app to see how different features influence the model's predictions.
 
-## Overview
+## About Dataset
+<div align="center">
+<img src="./images/lter_penguins.png" style="width: 500px">
+<div>source: @allison_horst https://github.com/allisonhorst/penguins</div>
+</div>
+<br>
 
-The application guides users through the following steps:
+The model is trained using the Palmer Penguins dataset, a widely recognized dataset for practicing machine learning techniques. This dataset provides information on three penguin species (Adelie, Chinstrap, and Gentoo) from the Palmer Archipelago in Antarctica. Key features include:
 
-1. **Data Loading and Display**:
-   - The app loads the penguin dataset, separates the features (`X`) and target variable (`y`), and displays them.
+* Species: The species of the penguin (Adelie, Chinstrap, Gentoo).
+* Island: The specific island where the penguin was observed (Biscoe, Dream, Torgersen).
+* Bill Length: The length of the penguin's bill (mm).
+* Bill Depth: The depth of the penguin's bill (mm).
+* Flipper Length: The length of the penguin's flipper (mm).
+* Body Mass: The mass of the penguin (g).
+* Sex: The sex of the penguin (male or female).
 
-2. **Data Visualization**:
-   - A scatter plot visualizes the relationship between penguins' body mass and bill length, with points colored by species.
-
-3. **User Input**:
-   - A sidebar interface enables users to input specific features such as island, bill length, and sex for a penguin.
-
-4. **Data Preparation**:
-   - Categorical variables (e.g., island, sex) are encoded into numerical values. The new input data is then combined with the existing dataset.
-   - The target variable (`species`) is also encoded into numerical labels.
-
-5. **Model Training**:
-   - A **Random Forest Classifier** is trained on the dataset.
-   - The trained model predicts the penguin species based on the user’s input.
-
-6. **Prediction Results Display**:
-   - The predicted species and the associated probabilities are displayed.
-
-## Machine Learning Method
-
-- **Random Forest Classifier**:
-  - The application uses a Random Forest Classifier, an ensemble learning method that employs multiple decision trees to perform classification. The final prediction is made by aggregating the predictions of individual trees, improving accuracy and handling noisy or non-linear data effectively.
+This dataset is sourced from Kaggle, and it can be accessed [here](https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data). The diversity in features makes it an excellent choice for building a classification model and understanding the importance of each feature in species prediction.
 
 ## Technology Stack
 - Streamlit (>=1.26.0): For creating the web application interface.
