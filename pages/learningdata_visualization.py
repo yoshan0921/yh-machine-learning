@@ -8,10 +8,6 @@ from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 import joblib
 
-# Display sidebar
-if __name__ == "__main__":
-    render_sidebar()
-
 st.subheader("Learning Data")
 
 # Display raw data
@@ -105,3 +101,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# Display sidebar
+if __name__ == "__main__":
+    render_sidebar()
