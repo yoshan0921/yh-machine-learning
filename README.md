@@ -9,7 +9,7 @@ The purpose of this application is to provide a simple experience of the process
 
 ## Demo App
 <div align="center">
-   <img src="./images/screenshot.png" style="width: 500px">
+   <img src="./images/screenshot.png" style="width: 600px">
    <p>Demo: https://yh-machinelearning.streamlit.app/</p>
 </div>
 <br>
