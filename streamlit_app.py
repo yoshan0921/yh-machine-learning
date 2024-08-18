@@ -18,10 +18,6 @@ def render_sidebar():
             icon=":material/database:",
         )
 
-
-# Display sidebar
-render_sidebar()
-
 # Create container
 container = st.container(border=True)
 
@@ -122,3 +118,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# Display sidebar
+if __name__ == "__main__":
+    render_sidebar()
