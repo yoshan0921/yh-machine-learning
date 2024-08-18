@@ -9,7 +9,8 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 # Display sidebar
-render_sidebar()
+if __name__ == "__main__":
+    render_sidebar()
 
 st.subheader("Learning Data")
 
