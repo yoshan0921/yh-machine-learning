@@ -37,7 +37,8 @@ The model is trained using the Palmer Penguins dataset, a widely recognized data
 This dataset is sourced from Kaggle, and it can be accessed [here](https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data). The diversity in features makes it an excellent choice for building a classification model and understanding the importance of each feature in species prediction.
 
 ## Technology Stack
-- Streamlit (>=1.26.0): For creating the web application interface.
+- Python
+- Streamlit: For creating the web application interface.
 - scikit-learn: For loading and using the pre-trained Random Forest model.
 - NumPy & Pandas: For data manipulation and processing.
 - Matplotlib & Seaborn: For generating visualizations.
